@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
+body{
+    background-color: #1D1F25;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logo > h3 > img{
+    width: 560px;
+}
+
+.banner h1{
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.banner p {
+    color: #898B9B;
+    font-size: 1.2rem;
+}
+
+.Form input,
+.add-task{
+    outline: none;
+    border-radius: 50px;
+    width: 50%;
+    height: 50px;
+    padding: 10px;
+    background-color: #292E3C;
+    color: white;
+    border: none;
+}
+
+.Form > label > img{
+    width: 30px;
+}
+
+.main{
+    display: none;
+}
+
+.landing-wrap,
+.task-wrap{
+    height: 100vh;
+}
+
+.primary-btn > a button,
+.taskField > button{
+    background-image: linear-gradient(to top right , #8225F6,#AE33F8);
+    color: white;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.delete,
+.check{
+    float: right;
+    margin-right: 10px;
+    border: none;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(240, 88, 88);
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.check{
+    background-image: linear-gradient(to top right , #8225F6,#AE33F8);
+}
+
+.delete:hover{
+    background-color: rgb(238, 49, 49);
+    transition: all 0.3s ease;
+}
+
+
+.primary-btn > button:hover,
+.taskField > button:hover,
+.taskField > button a:hover,
+.primary-btn > a button:hover
+{
+    transform: translate(2px,-2px);
+    transition: all 0.3s ease;
+    color: gold;
+}
+
+.error{
+    border: 2px solid rgb(202, 59, 59) !important;
+}
+
+
+.greet,
+.empty-taskbar h4,
+.TaskAdded{
+    color: white;
+}
+
+.tasks,
+.empty-taskbar{
+    width: 60%;
+    height: 60vh;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+
+.empty-taskbar{
+    height: 60vh;
+}
+
+.empty-taskbar > img{
+    width: 300px;
+}
+
+.taskField > button{
+    font-weight: bold;
+    padding: 12px 20px 12px 20px !important;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.taskField{
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.TaskAdded{
+    margin: 10px 40px;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background-color: #2765FA;
+    text-transform: capitalize;
+}
+
+.taskField > button a,
+.primary-btn > button a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Remove scrollbar */
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+.checked{
+    text-decoration:line-through;
+    color:#292E3C;
+}
+
+.TaskAdded > img{
+    width:30px;
+    margin:0px 50px 5px 20px;
+}
+
+
+/* Media Queries */
+
+
+@media all and (max-width:1024px){
+
+    .logo{
+        text-align: center;
+    }
+
+
+    .logo > h3 img{
+        width: 300px;
+    } 
+
+    h1,
+    h5,
+    h4{
+        font-size: 2rem;
+    }
+    .greet{
+        text-align: center;
+    }
+
+    .tasks,
+    .empty-taskbar{
+        width: 90%;
+        height: 60vh;
+        margin: 0 auto;
+        overflow-y: scroll;
+        margin-top: 30px;
+    }
+
+    .empty-taskbar > img{
+        width: 300px;
+    }
+
+    .taskField > input{
+        font-size: 1.3rem;
+        padding: 20px ;
+    }
+
+    .taskField > button{
+        font-size: 1.3rem;
+        padding: 12px 20px 12px 20px !important;
+    }
+
+    .TaskAdded{
+        font-size: 1.3rem;
+        margin: 20px 30px;
+    }
+
+    .TaskAdded > img{
+        width:20px;
+        margin:0px 50px 5px 20px;
+    }
+
+    .check,
+    .delete{
+        width: 40px;
+        padding: 0px 10px 0px 10px;
+    }
+
+    
+}
+
+
+@media all and (max-width:650px){
+    h1,
+    h5,
+    h4{
+        font-size: 1.2rem;
+    }
+    .greet{
+        text-align: center;
+    }
+
+    .tasks,
+    .empty-taskbar{
+        width: 100%;
+        height: 60vh;
+        margin: 0 auto;
+        overflow-y: scroll;
+        margin-top: 30px;
+    }
+
+    .empty-taskbar > img{
+        width: 200px;
+    }
+
+    .taskField > input{
+        font-size: 1rem;
+        padding: 15px ;
+    }
+
+    .taskField > button{
+        font-size: 1rem;
+        padding: 12px 20px 12px 20px !important;
+    }
+
+    .TaskAdded{
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+}
+
+@media all and (max-width:480px){
+
+    .TaskAdded{
+        margin-top: 20px;
+    }
+
+    .check,
+    .delete{
+        width: 35px;
+        padding: 0;
+    }
+
+    .container-fluid{
+        padding: 0 !important;
+    }
+}
