@@ -36,6 +36,10 @@ body{
     width: 30px;
 }
 
+.progress{
+    width: 0;
+}
+
 .main{
     display: none;
 }
