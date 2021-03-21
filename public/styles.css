@@ -89,6 +89,7 @@ button:focus{
 }
 
 
+
 .primary-btn > button:hover,
 .taskField > button:hover,
 .taskField > button a:hover,
@@ -172,6 +173,9 @@ button:focus{
     margin:0px 50px 5px 20px;
 }
 
+.task-wrap{
+    margin-top: 50px !important;
+}
 
 /* Media Queries */
 
@@ -280,8 +284,26 @@ button:focus{
 
 @media all and (max-width:480px){
 
+    .banner > h1{
+        font-size: 1.2rem;
+    }
+
+    .greetuser{
+        font-size: 27px;
+    }
+
+    .banner > p,
+    .primary-btn {
+        font-size: 1rem;
+    }
+
+    .Form > input{
+        width: 70%;
+    }
+
     .TaskAdded{
-        margin-top: 20px;
+        display: flex;
+        justify-content: center;
     }
 
     .TaskAdded > img{
@@ -289,15 +311,17 @@ button:focus{
     }
 
     .TaskAdded > label{
-        width: 70%;
+        margin: 0px 10px !important;
+        width: 60%;
         overflow-x: hidden;
-        margin-left: 10px !important;
     }
 
-    .check,
-    .delete{
-        width: 35px;
-        padding: 0;
+    .taskField > input{
+        width: 70%;
+    }
+
+    .taskField > button{
+        padding: 12px 20px 12px 20px !important;
     }
 
     .container-fluid{

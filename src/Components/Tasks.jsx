@@ -1,15 +1,16 @@
 import {React,useState,useEffect} from 'react';
 import sleep from './images/sleep.jpg'
 import checkImg from './images/checked.png'
-import tickImg from './images/tick.png'
 import uncheckImg from './images/notchecked.png'
+import get_date from './Helper';
 
 
 const Task = ()=>{
     let [tasks,setTasks] = useState([]);
     let [idCounter,setID] = useState(0);
     let [percentage,setpercentage] = useState(0);
-    let [taskcom,set_taskcom] = useState(0);
+
+    // Calculate percentage  
 
     useEffect(()=>{
         let check = 0 ;
@@ -76,13 +77,15 @@ const Task = ()=>{
         )
     }
 
+    // If the task list is empty 
+
     if(tasks.length === 0){
         return(
             <>
-            <div className="container-fluid pt-4 px-5 task-wrap" id="todo">
+            <div className="container-fluid mt-5 px-5 task-wrap pt-4" id="todo">
                 <div className="greet mb-5 mt-4">
-                    <h1 className="greetuser"></h1>
-                    <h2>Heres Your List for Today !</h2>
+                    <h1 className="greetuser mt-5"></h1>
+                    <h2>{get_date()}</h2>
                 </div>
                 <div className="container-fluid">
                     <div className="empty-taskbar d-flex flex-column align-items-center justify-content-center">
@@ -98,12 +101,15 @@ const Task = ()=>{
         </>
         )
     }
+
+    // Tasks added
+
     return(
         <>
-            <div className="container-fluid px-5 task-wrap pt-4">
+            <div className="container-fluid mt-5 px-5 task-wrap pt-4">
                 <div className="greet mb-5 mt-4">
                     <h1 className="greetuser"></h1>
-                    <h2>Heres Your List for Today !</h2>
+                    <h2>{get_date()}</h2>
                     <h2>Tasks Completed : {percentage}%</h2>
                 </div>
                 <div className="container-fluid ">
@@ -113,8 +119,20 @@ const Task = ()=>{
                                 (TaskAdded)=>{
                                     return(
                                         <div className="TaskAdded">
+
+                                            {/* change image from '!' -> 'tickmark' */}
+
                                             <img src={`${TaskAdded.checked ? checkImg:uncheckImg}`}></img>
-                                            <label for="taskadded" className={`${TaskAdded.checked ? "checked d" : "notchecked d"}`}>{TaskAdded.taskdet}</label>
+
+                                            {/* Add the Taskname to UI */}
+                                            {/* strike out text if completed */}
+
+                                            <label for="taskadded" className={`${TaskAdded.checked ? "checked d" : "notchecked d"}`}>
+                                                {TaskAdded.taskdet}
+                                            </label>
+
+                                            {/* delete and check buttons */}
+
                                             <button className="check" onClick={()=>CompleteTask(TaskAdded.id)}>
                                                 &gt;
                                             </button>
@@ -127,7 +145,7 @@ const Task = ()=>{
                         <div id="scroll"></div>
                     </div>
                 </div>
-                <div className="taskField ">
+                <div className="taskField">
                         <input type="text" className="add-task mx-3" placeholder="Add a new Task"></input>
                         <button onClick={AddTask}><a href="#scroll">+</a></button>
                 </div>
