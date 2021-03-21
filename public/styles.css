@@ -36,9 +36,6 @@ body{
     width: 30px;
 }
 
-.progress{
-    width: 0;
-}
 
 .main{
     display: none;
@@ -61,6 +58,11 @@ body{
     transition: all 0.3s ease;
 }
 
+button:focus{
+    outline:0px;
+}
+
+
 .delete,
 .check{
     float: right;
@@ -78,6 +80,7 @@ body{
 
 .check{
     background-image: linear-gradient(to top right , #8225F6,#AE33F8);
+    font-weight: bold;
 }
 
 .delete:hover{
@@ -279,6 +282,16 @@ body{
 
     .TaskAdded{
         margin-top: 20px;
+    }
+
+    .TaskAdded > img{
+        display: none;
+    }
+
+    .TaskAdded > label{
+        width: 70%;
+        overflow-x: hidden;
+        margin-left: 10px !important;
     }
 
     .check,

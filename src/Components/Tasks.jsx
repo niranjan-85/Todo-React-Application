@@ -1,12 +1,23 @@
 import {React,useState,useEffect} from 'react';
 import sleep from './images/sleep.jpg'
 import checkImg from './images/checked.png'
+import tickImg from './images/tick.png'
 import uncheckImg from './images/notchecked.png'
+
 
 const Task = ()=>{
     let [tasks,setTasks] = useState([]);
     let [idCounter,setID] = useState(0);
     let [percentage,setpercentage] = useState(0);
+    let [taskcom,set_taskcom] = useState(0);
+
+    useEffect(()=>{
+        let check = 0 ;
+        tasks.map((item)=>{
+            if(item.checked) check++;
+        })
+        setpercentage(Math.round(check/tasks.length *100));
+    },[tasks]);
 
     // give an unique id to each item
 
@@ -19,15 +30,16 @@ const Task = ()=>{
 
     const AddTask = ()=>{
         let taskName = document.querySelector('.add-task');
+        let task_buffer = taskName.value;
         if(taskName.value === ""){
             taskName.classList.add('error');
         }
         else{
+            taskName.value = "";
             taskName.classList.remove('error');
-            let i=0;
             setTasks(
                 (initialList)=>{
-                    return [...initialList,{'id':generateId(),'taskdet':taskName.value,'checked':0}]
+                    return [...initialList,{'id':generateId(),'taskdet':task_buffer,'checked':0}]
                 }
             )
         }
@@ -37,7 +49,7 @@ const Task = ()=>{
 
     const deleteTask = (id)=>{
         const UpdatedTasks = tasks.filter((TaskObj)=>TaskObj.id !== id)
-        setTasks(UpdatedTasks)
+        setTasks(UpdatedTasks);
     }
 
     // if user completes the task
@@ -67,10 +79,10 @@ const Task = ()=>{
     if(tasks.length === 0){
         return(
             <>
-            <div className="container-fluid mt-5 px-5 task-wrap mt-5" id="todo">
+            <div className="container-fluid pt-4 px-5 task-wrap" id="todo">
                 <div className="greet mb-5 mt-4">
-                    <h1>All Tasks</h1>
-                    <h5 className="greetuser"></h5>
+                    <h1 className="greetuser"></h1>
+                    <h2>Heres Your List for Today !</h2>
                 </div>
                 <div className="container-fluid">
                     <div className="empty-taskbar d-flex flex-column align-items-center justify-content-center">
@@ -88,14 +100,11 @@ const Task = ()=>{
     }
     return(
         <>
-            <div className="container-fluid task-wrap mt-5">
+            <div className="container-fluid px-5 task-wrap pt-4">
                 <div className="greet mb-5 mt-4">
-                    <h1>All Tasks</h1>
-                    <h5 className="greetuser"></h5>
-                    <div className="percent" style={{color:"white"}}>
-                        <progress value={percentage} max="100" id="progress"></progress>
-                        {percentage}
-                    </div>
+                    <h1 className="greetuser"></h1>
+                    <h2>Heres Your List for Today !</h2>
+                    <h2>Tasks Completed : {percentage}%</h2>
                 </div>
                 <div className="container-fluid ">
                     <div className="tasks">
@@ -105,9 +114,9 @@ const Task = ()=>{
                                     return(
                                         <div className="TaskAdded">
                                             <img src={`${TaskAdded.checked ? checkImg:uncheckImg}`}></img>
-                                            <label for="taskadded" className={`${TaskAdded.checked ? "checked" : "notchecked"}`}>{TaskAdded.taskdet}</label>
+                                            <label for="taskadded" className={`${TaskAdded.checked ? "checked d" : "notchecked d"}`}>{TaskAdded.taskdet}</label>
                                             <button className="check" onClick={()=>CompleteTask(TaskAdded.id)}>
-                                                O
+                                                &gt;
                                             </button>
                                             <button className="delete" onClick={()=>deleteTask(TaskAdded.id)}>X</button>
                                         </div>

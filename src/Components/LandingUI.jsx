@@ -17,7 +17,7 @@ const Landing = ()=>{
         else{
             Username.classList.remove('error');
             if(document.querySelector('.main')) document.querySelector('.main').classList.remove('main');
-            document.querySelector('.greetuser').innerHTML = `Welcome ${Username.value} ! Here's your Todo List`;
+            document.querySelector('.greetuser').innerHTML = `Welcome ${Username.value}`;
         }
     }
 
