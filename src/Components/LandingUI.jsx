@@ -17,7 +17,7 @@ const Landing = ()=>{
         else{
             Username.classList.remove('error');
             if(document.querySelector('.main')) document.querySelector('.main').classList.remove('main');
-            document.querySelector('.greetuser').innerHTML = `Welcome ${Username.value}`;
+            document.querySelector('.greetuser').innerHTML = `Welcome ${Username.value} !`;
         }
     }
 
@@ -32,7 +32,7 @@ const Landing = ()=>{
                     </div>
                     <div className="text-center banner mt-3 mb-2">
                         <h1 className="mb-3">Organize Your Tasks</h1>
-                        <p>Want to increase your Productivity ? <br></br> Start organizing your Tasks efficiently with PomoList !</p>
+                        <p>Want to increase your Productivity ? <br></br> Start organizing your Tasks efficiently with TaskElimanator !</p>
                     </div>
                     <div className="Form d-flex align-items-center justify-content-center mt-5 mb-5">
                         <label htmlFor="Username" className="mx-3">

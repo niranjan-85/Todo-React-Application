@@ -133,10 +133,12 @@ const Task = ()=>{
 
                                             {/* delete and check buttons */}
 
-                                            <button className="check" onClick={()=>CompleteTask(TaskAdded.id)}>
-                                                &gt;
-                                            </button>
-                                            <button className="delete" onClick={()=>deleteTask(TaskAdded.id)}>X</button>
+                                            <div>
+                                                <button className="check" onClick={()=>CompleteTask(TaskAdded.id)}>
+                                                    &gt;
+                                                </button>
+                                                <button className="delete" onClick={()=>deleteTask(TaskAdded.id)}>X</button>
+                                            </div>
                                         </div>
                                     )
                                 }

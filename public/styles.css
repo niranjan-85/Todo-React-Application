@@ -143,6 +143,8 @@ button:focus{
 }
 
 .TaskAdded{
+    display: flex;
+    justify-content: space-between;
     margin: 10px 40px;
     padding: 10px;
     font-size: 1.5rem;
@@ -150,6 +152,12 @@ button:focus{
     border-radius: 50px;
     background-color: #2765FA;
     text-transform: capitalize;
+}
+
+.TaskAdded > label{
+    flex: 1;
+    margin-right: 10px !important;
+    overflow-x: hidden;
 }
 
 .taskField > button a,
